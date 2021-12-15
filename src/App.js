@@ -6,38 +6,41 @@ import Spend from './components/Spend';
 import ExpenseList from './components/ExpenseList';
 import AddExpense from './components/AddExpense';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import { AppProvider } from './context/AppContext';
 
 function App() {
   return (
-    <div className="container">
-      <h1 className="mt-3" > React Budget Plannner </h1>
+    <AppProvider>
+      <div className="container">
+        <h1 className="mt-3" > React Budget Plannner </h1>
 
-      <div className="row mt-3">
-        <div className="col-sm">
-          <Budget />
-        </div>
-        <div className="col-sm">
-          <Remaining />
-        </div>
-        <div className="col-sm">
-          <Spend />
-        </div>
+        <div className="row mt-3">
+          <div className="col-sm">
+            <Budget />
+          </div>
+          <div className="col-sm">
+            <Remaining />
+          </div>
+          <div className="col-sm">
+            <Spend />
+          </div>
 
 
+        </div>
+        <div className="row mt-3">
+          <div className="col-sm">
+            <ExpenseList />
+          </div>
+
+        </div>
+        <div className="row mt-3">
+          <div className="col-sm">
+            <AddExpense />
+          </div>
+
+        </div>
       </div>
-      <div className="row mt-3">
-        <div className="col-sm">
-          <ExpenseList />
-        </div>
-
-      </div>
-      <div className="row mt-3">
-        <div className="col-sm">
-          <AddExpense />
-        </div>
-
-      </div>
-    </div>
+    </AppProvider>
   );
 }
 
