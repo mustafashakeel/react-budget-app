@@ -20,6 +20,8 @@ const AddExpense = (props) => {
             type: 'ADD_EXPENSE',
             payload: expense
         });
+        setName('');
+        setCost('');
     };
     return (
         <form onSubmit={onSubmit}>
@@ -31,13 +33,14 @@ const AddExpense = (props) => {
             <div className="row">
                 <div className="col-sm">
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" className="form-control" onChange={(event) => setName(event.target.value)} />
+                    <input type="text" id="name" className="form-control" value={name} onChange={(event) => setName(event.target.value)} />
 
                 </div>
                 <div className="col-sm">
                     <label htmlFor="cost">Cost</label>
                     <input type="text" id="cost"
                         className="form-control"
+                        value={cost}
                         onChange={(event) => {
                             console.log(" cost ", event);
                             setCost(event.target.value)

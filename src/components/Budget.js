@@ -10,11 +10,19 @@ const Budget = (props) => {
         setIsEditing(true);
 
     }
+    const handleSaveClick = (value) => {
+
+        setIsEditing(false);
+        dispatch({
+            type: 'SET_BUDGET',
+            payload: value
+        })
+    }
 
     return (
         <div className="alert alert-secondary">
             {
-                isEditing ? (<EditBudget />) :
+                isEditing ? (<EditBudget budget={budget} handleSaveClick={handleSaveClick} />) :
                     (<ViewBudget budget={budget} handleEditClick={handleEditClick} />)
             }
 
